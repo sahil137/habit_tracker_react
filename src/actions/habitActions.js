@@ -1,4 +1,4 @@
-import { ADD_HABIT, EDIT_HABIT, DELETE_HABIT } from '../constants/actionTypes';
+import { ADD_HABIT, UPDATE_HABIT_STATUS } from '../constants/actionTypes';
 
 export const addHabit = (habit) => {
   return {
@@ -7,16 +7,9 @@ export const addHabit = (habit) => {
   };
 };
 
-export const editHabit = (habit) => {
+export const updateStatus = (habit) => {
   return {
-    type: EDIT_HABIT,
-    payload: habit,
-  };
-};
-
-export const deleteHabit = (habit) => {
-  return {
-    type: DELETE_HABIT,
+    type: UPDATE_HABIT_STATUS,
     payload: habit,
   };
 };

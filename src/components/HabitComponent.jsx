@@ -9,22 +9,22 @@ const useStyles = makeStyles({
     justifyContent: 'space-around',
     alignItems: 'center',
     padding: '10px',
-    // border: '1px solid black',
   },
   statusBox: {
-    // backgroundColor: 'blue',
     height: '20px',
     width: '20px',
     margin: '20px',
     marginLeft: '10px',
-    // border: '1px solid black',
+    cursor: 'pointer',
   },
 });
 const HabitComponent = ({ habit }) => {
   const classes = useStyles();
   return (
     <>
-      <Typography>{habit.title}</Typography>
+      <Typography>
+        {habit.title}: {habit.description}
+      </Typography>
       <Container className={classes.container}>
         {habit.consistency.map((item) => {
           return (

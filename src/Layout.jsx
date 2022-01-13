@@ -11,11 +11,7 @@ import {
   Toolbar,
   Typography,
 } from '@material-ui/core';
-import {
-  AddCircleOutlined,
-  EditOutlined,
-  SubjectOutlined,
-} from '@material-ui/icons';
+import { AddCircleOutlined, SubjectOutlined } from '@material-ui/icons';
 
 import { useNavigate, useLocation } from 'react-router-dom';
 
@@ -68,11 +64,6 @@ const Layout = ({ children }) => {
       text: 'Add Habit',
       icon: <AddCircleOutlined color="primary" />,
       path: '/addHabits',
-    },
-    {
-      text: 'Edit Habits',
-      icon: <EditOutlined color="primary" />,
-      path: '/editHabits',
     },
   ];
 

@@ -7,6 +7,9 @@ import {
 } from '@material-ui/core';
 import { KeyboardArrowRight } from '@material-ui/icons';
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addHabit } from '../actions/habitActions';
+import { NONE } from '../constants/habitStatus';
 
 const useStyles = makeStyles({
   field: {
@@ -24,6 +27,8 @@ const useStyles = makeStyles({
 });
 
 const AddHabits = () => {
+  const dispatch = useDispatch();
+
   // hooks to set title and details of habit
   const [title, setTitle] = useState('');
   const [details, setDetails] = useState('');
@@ -44,6 +49,43 @@ const AddHabits = () => {
     }
     if (details === '') {
       setDetailsError(true);
+    }
+    if (title && details) {
+      const habit = {
+        title,
+        description: details,
+        consistency: [
+          {
+            day: 1,
+            status: NONE,
+          },
+          {
+            day: 2,
+            status: NONE,
+          },
+          {
+            day: 3,
+            status: NONE,
+          },
+          {
+            day: 4,
+            status: NONE,
+          },
+          {
+            day: 5,
+            status: NONE,
+          },
+          {
+            day: 6,
+            status: NONE,
+          },
+          {
+            day: 7,
+            status: NONE,
+          },
+        ],
+      };
+      dispatch(addHabit(habit));
     }
   };
   const classes = useStyles();
