@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Layout from './components/Layout';
-import Habits from './components/Habits';
-import AddHabits from './components/AddHabits';
-import EditHabits from './components/EditHabits';
+import Layout from './Layout';
+import Habits from './pages/Habits';
+import AddHabits from './pages/AddHabits';
+import EditHabits from './pages/EditHabits';
 
 const App = () => {
   return (
