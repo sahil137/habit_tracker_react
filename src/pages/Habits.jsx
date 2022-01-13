@@ -1,10 +1,17 @@
+import { Container } from '@material-ui/core';
 import React from 'react';
+import { useSelector } from 'react-redux';
+import HabitComponent from '../components/HabitComponent';
 
 const Habits = () => {
+  const habits = useSelector((state) => state.habits);
+  console.log(habits);
   return (
-    <div>
-      <h1>All Habits</h1>
-    </div>
+    <Container style={{ padding: '10px' }}>
+      {habits.map((habit) => (
+        <HabitComponent habit={habit} key={habit.title} />
+      ))}
+    </Container>
   );
 };
 

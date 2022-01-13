@@ -5,6 +5,6 @@ import reducer from './reducers/habitsReducer';
 let store;
 
 export function configureStore() {
-  store = createStore(reducer, {});
+  store = createStore(reducer);
   return store;
 }

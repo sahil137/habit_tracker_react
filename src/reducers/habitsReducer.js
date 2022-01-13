@@ -1,21 +1,109 @@
 import { ADD_HABIT } from '../constants/actionTypes';
+import { DONE, NOT_DONE, NONE } from '../constants/habitStatus';
 
 const initialState = {
   habits: [
     {
-      id: 1,
       title: 'Go to Gym',
       description: 'Workout for atleast 30 minutes',
+      consistency: [
+        {
+          day: 1,
+          status: DONE,
+        },
+        {
+          day: 2,
+          status: NOT_DONE,
+        },
+        {
+          day: 3,
+          status: NONE,
+        },
+        {
+          day: 4,
+          status: DONE,
+        },
+        {
+          day: 5,
+          status: NONE,
+        },
+        {
+          day: 6,
+          status: NOT_DONE,
+        },
+        {
+          day: 7,
+          status: NOT_DONE,
+        },
+      ],
     },
     {
-      id: 2,
       title: 'Read a book',
       description: 'Try to finish atleast one book',
+      consistency: [
+        {
+          day: 1,
+          status: NONE,
+        },
+        {
+          day: 2,
+          status: NONE,
+        },
+        {
+          day: 3,
+          status: NONE,
+        },
+        {
+          day: 4,
+          status: DONE,
+        },
+        {
+          day: 5,
+          status: DONE,
+        },
+        {
+          day: 6,
+          status: NOT_DONE,
+        },
+        {
+          day: 7,
+          status: DONE,
+        },
+      ],
     },
     {
-      id: 3,
       title: 'Cook food',
       description: 'Learn to cook healty meals',
+      consistency: [
+        {
+          day: 1,
+          status: DONE,
+        },
+        {
+          day: 2,
+          status: NOT_DONE,
+        },
+        {
+          day: 3,
+          status: NONE,
+        },
+        {
+          day: 4,
+          status: NONE,
+        },
+        {
+          day: 5,
+          status: DONE,
+        },
+        {
+          day: 6,
+          status: DONE,
+        },
+        {
+          day: 7,
+          status: NOT_DONE,
+        },
+      ],
     },
   ],
 };
