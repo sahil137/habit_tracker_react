@@ -10,6 +10,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addHabit } from '../actions/habitActions';
 import { NONE } from '../constants/habitStatus';
+import { useNavigate } from 'react-router-dom';
 
 const useStyles = makeStyles({
   field: {
@@ -36,6 +37,8 @@ const AddHabits = () => {
   // error states
   const [titleError, setTitleError] = useState(false);
   const [detailsError, setDetailsError] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -86,6 +89,7 @@ const AddHabits = () => {
         ],
       };
       dispatch(addHabit(habit));
+      navigate('/');
     }
   };
   const classes = useStyles();
