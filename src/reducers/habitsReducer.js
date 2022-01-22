@@ -1,4 +1,4 @@
-import { ADD_HABIT } from '../constants/actionTypes';
+import { ADD_HABIT, UPDATE_HABIT_STATUS } from '../constants/actionTypes';
 import { DONE, NOT_DONE, NONE } from '../constants/habitStatus';
 
 const initialState = {
@@ -114,6 +114,27 @@ const reducer = (state = initialState, action) => {
       return {
         habits: [...state.habits, action.payload],
       };
+
+    // structure of habit array
+    // habits = [title, description, consistency[day, status]]
+
+    case UPDATE_HABIT_STATUS:
+      // get index of title from habits array
+      const idx = state.habits
+        .map((e) => {
+          return e.title;
+        })
+        .indexOf(action.title);
+
+      // use day - 1 as index of consistency array and change status of habit
+      if (action.payload === DONE) {
+        state.habits[idx].consistency[action.day - 1].status = NOT_DONE;
+      } else if (action.payload === NOT_DONE) {
+        state.habits[idx].consistency[action.day - 1].status = NONE;
+      } else if (action.payload === NONE) {
+        state.habits[idx].consistency[action.day - 1].status = DONE;
+      }
+      return state;
     default:
       return state;
   }

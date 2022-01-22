@@ -7,9 +7,11 @@ export const addHabit = (habit) => {
   };
 };
 
-export const updateStatus = (habit) => {
+export const updateStatus = (status, day, title) => {
   return {
     type: UPDATE_HABIT_STATUS,
-    payload: habit,
+    payload: status,
+    day,
+    title,
   };
 };

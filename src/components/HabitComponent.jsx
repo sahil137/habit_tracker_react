@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Divider, makeStyles, Typography } from '@material-ui/core';
-import { Done, Cancel, HourglassEmptyOutlined } from '@material-ui/icons';
-import { DONE, NONE, NOT_DONE } from '../constants/habitStatus';
+
+import HabitDetails from './HabitDetails';
 
 const useStyles = makeStyles({
   container: {
@@ -10,14 +10,8 @@ const useStyles = makeStyles({
     alignItems: 'center',
     padding: '10px',
   },
-  statusBox: {
-    height: '20px',
-    width: '20px',
-    margin: '20px',
-    marginLeft: '10px',
-    cursor: 'pointer',
-  },
 });
+
 const HabitComponent = ({ habit }) => {
   const classes = useStyles();
   return (
@@ -26,19 +20,14 @@ const HabitComponent = ({ habit }) => {
         {habit.title}: {habit.description}
       </Typography>
       <Container className={classes.container}>
-        {habit.consistency.map((item) => {
+        {habit.consistency.map((element) => {
           return (
-            <>
-              <div>
-                <Typography>Day {item.day}</Typography>
-                {/* <Typography>Status: {item.status}</Typography> */}
-                <div className={classes.statusBox}>
-                  {item.status === DONE ? <Done /> : null}
-                  {item.status === NOT_DONE ? <Cancel /> : null}
-                  {item.status === NONE ? <HourglassEmptyOutlined /> : null}
-                </div>
-              </div>
-            </>
+            <HabitDetails
+              element={element}
+              key={element.day}
+              day={element.day}
+              title={habit.title}
+            />
           );
         })}
       </Container>
