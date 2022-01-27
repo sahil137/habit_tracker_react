@@ -73,7 +73,7 @@ const initialState = {
     },
     {
       title: 'Cook food',
-      description: 'Learn to cook healty meals',
+      description: 'Learn to cook healthy meals',
       consistency: [
         {
           day: 1,
